@@ -3,9 +3,11 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 
+
 FROM base AS test
 COPY . .
 RUN npm test
+
 
 FROM base AS production
 COPY . .
